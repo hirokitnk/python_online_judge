@@ -1,17 +1,17 @@
 N,Y = map(int,input().split())
-X = []
-for i in range(N+1):
-    k = N
-    k -= i
-    if 10000*i > Y:
-        break
-    for j in range(k+1):
-        l = k
-        l -= j
-        if (10000*i + 5000*j + 1000*l) == Y:
-            X = [i,j,l]
+xyz = []
 
-if len(X) == 0:
+for x in range(N+1):
+    if len(xyz) > 0:
+        break
+    if (10000 * x) > Y:
+        break
+    for y in range(N-x+1):
+        z = N - x - y
+        if (10000 * x + 5000 * y + 1000 * z) == Y:
+            xyz = [x,y,z]
+
+if len(xyz) == 0:
     print("-1 -1 -1")
 else:
-    print(f'{X[0]} {X[1]} {X[2]}')
+    print(f'{xyz[0]} {xyz[1]} {xyz[2]}')
