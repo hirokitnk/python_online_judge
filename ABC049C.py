@@ -4,16 +4,17 @@ sys.setrecursionlimit(100000)
 S = input()
 words = ["dream","dreamer","erase","eraser"]
 
-def findMatch(T,M):
-    if T == S:
+def findMatch(nT,M):
+    if nT == len(S):
         return True
     for i in words:
-        t = T
-        if S.startswith(t + i):
-            M = findMatch(t+i,M)
+        t = nT
+        if S[nT:].startswith(i):
+            #print(str(t+len(i)))
+            M = findMatch(t+len(i),M)
     return M
 
-if findMatch("",False):
+if findMatch(0,False):
     print("YES")
 else:
     print("NO")
