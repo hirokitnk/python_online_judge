@@ -10,8 +10,8 @@ for i in range(1,N+1):
     x.append(args[1])
     y.append(args[2])
 
-    deltaTime = t[i] - t[i-1]
-    deltaDist = (x[i]- x[i-1]) + (y[i]-y[i-1])
+    deltaTime = abs(t[i] - t[i-1])
+    deltaDist = abs((x[i]- x[i-1])) + abs((y[i]-y[i-1]))
 
     if deltaDist > deltaTime:
         reached = False
