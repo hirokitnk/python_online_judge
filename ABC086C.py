@@ -1,38 +1,23 @@
+t[0],x[0],y[0] = 0,0,0
+
 N = int(input())
 
-def travel(t,x,y,M):
-    if t == t1:
-        if x == x1 and y == y1:
-            #print("Reached")
-            #print(t,x,y,M)
-            return True
-        #print(t,x,y,M)
-        return
-    #print(t,x,y,M)
-    if M:
-        return True
-    M = travel(t+1,x+1,y,M)
-    if M:
-        return True
-    M = travel(t+1,x-1,y,M)
-    if M:
-        return True
-    M = travel(t+1,x,y+1,M)
-    if M:
-        return True
-    M = travel(t+1,x,y-1,M)
-    return M
-
-Reached = False
+reached = True
 
 for i in range(N):
-    t1,x1,y1 = map(int,input().split())
-    if travel(0,0,0,False):
-        Reached = True
-    else:
-        Reached = False
+    t[i],x[i],y[i] = map(int,input().split())
+    deltaTime = t[i] - t[i-1]
+    deltaDist = (x[i]- x[i-1]) + (y[i]-y[i-1])
 
-if Reached:
+    if deltaDist > deltaTime:
+        reached = False
+        break
+
+    if deltaDist % 2 != deltaTiem % 2:
+        reached = False
+        break
+
+if reached:
     print("Yes")
 else:
     print("No")
