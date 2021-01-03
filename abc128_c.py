@@ -13,7 +13,6 @@ for i in range(1<<N):
         for l in range(1,k0+1):
             if (i & (1<<k[j][l]-1)):
                 on_s +=1
-
         if on_s % 2 != p[j]:
             can = False
     if can:
