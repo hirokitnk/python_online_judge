@@ -1,12 +1,13 @@
-import itertools
-
 N = int(input())
 A = list(map(int,input().split()))
 result = 0
 
-for i in itertools.combinations(range(N+1),2):
-    l,r = i[0],i[1]
-    x = min(A[l:r])
-    result = max(result, x * (r-l))
+for l in range(N):
+    #最小値を仮置きする
+    x = A[l]
+    for r in range(l,N):
+        #rまでの位置で最小値を更新
+        x = min(x,A[r])
+        result = max(result,x*(r-l+1))
 
 print(result)
