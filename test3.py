@@ -1,4 +1,7 @@
-N = int(input())
-P = [list(map(int,input().split())) for _ in range(N)]
-P.sort()
-print(P)
+def func(n):
+    if n == 0 or n ==1:
+        return 1
+    res = func(n-1) + func(n-2)
+    return res
+
+print(func(5))
