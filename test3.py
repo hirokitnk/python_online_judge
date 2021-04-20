@@ -1,7 +1,10 @@
-def func(n):
-    if n == 0 or n ==1:
-        return 1
-    res = func(n-1) + func(n-2)
-    return res
+n = int(input())
 
-print(func(5))
+for i in range(1<<n):
+    print('----------')
+    print(i)
+    print(bin(i))
+    for j in range(n):
+        print(i & (1<<j))
+
+

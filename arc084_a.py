@@ -3,16 +3,13 @@ n = int(input())
 a = list(map(int,input().split()))
 b = list(map(int,input().split()))
 c = list(map(int,input().split()))
-b.sort()
+a.sort()
 c.sort()
-#print(a,b,c)
 
 ans = 0
-for i in a:
-    b_left = bisect.bisect_left(b,i)
-    for j in b[b_left:]:
-        c_left = bisect.bisect_left(c,j)
-        ans += n-c_left
-        #print(i,j)
+for j in b:
+    a_right = bisect.bisect_right(a,j-1) 
+    c_left = bisect.bisect_left(c,j+1)
+    ans += (a_right) * (n - c_left)
 
 print(ans)
